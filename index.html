@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNG Ventures Inc. — TCG & Collectibles Research Tooling</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EAECF0; --bg2:#ffffff; --card:#ffffff; --border:#d3d8e0;
+  --text:#000000; --muted:#233D4D; --accent:#233D4D; --accent2:#FE7F2D;
+  --navy:#000000; --navy2:#233D4D;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg); color:var(--text); line-height:1.6; font-weight:400;
+}
+h1,h2,h3,h4,.brand{font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; font-weight:800;}
+a{color:inherit; text-decoration:none;}
+.container{max-width:1120px; margin:0 auto; padding:0 24px;}
+
+header{
+  position:sticky; top:0; z-index:50;
+  background:var(--navy);
+  border-bottom:1px solid var(--navy2);
+}
+nav{display:flex; align-items:center; justify-content:space-between; height:72px;}
+.brand{font-weight:800; font-size:1.15rem; letter-spacing:-0.02em; color:#EAECF0;}
+.brand span{color:var(--accent2);}
+.nav-links{display:flex; gap:32px; font-size:0.95rem; color:#c7d0da;}
+.nav-links a:hover{color:#fff;}
+.nav-cta{
+  padding:9px 18px; border-radius:8px; background:var(--accent2); color:#fff;
+  font-weight:600; font-size:0.9rem;
+}
+
+.hero{
+  padding:96px 0 72px; text-align:center;
+  background:linear-gradient(180deg, var(--navy) 0%, var(--navy2) 55%, var(--bg) 100%);
+  color:#EAECF0;
+}
+.hero .sub{color:#c7d0da;}
+.eyebrow{
+  display:inline-block; font-size:0.8rem; font-weight:700; letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--accent2); margin-bottom:18px;
+  border:1px solid var(--border); padding:6px 14px; border-radius:999px;
+}
+h1{font-size:clamp(2.1rem,5vw,3.4rem); font-weight:800; letter-spacing:-0.03em; max-width:820px; margin:0 auto 20px;}
+h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.sub{font-size:1.15rem; color:var(--muted); max-width:640px; margin:0 auto 36px;}
+.hero-ctas{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+.btn{
+  padding:13px 26px; border-radius:9px; font-weight:600; font-size:0.98rem;
+  border:1px solid var(--border); transition:transform .15s ease, border-color .15s ease;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn-primary{background:var(--accent); color:#fff; border-color:var(--accent);}
+.btn-outline{background:transparent; color:var(--text);}
+.btn-outline:hover{border-color:var(--accent);}
+.hero .btn-outline{color:#EAECF0; border-color:#233D4D;}
+.hero .eyebrow{border-color:#233D4D; color:var(--accent2);}
+
+.stats{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+  background:var(--border); border:1px solid var(--border); border-radius:14px; overflow:hidden;
+  margin:0 auto; max-width:920px;
+}
+.stat{background:var(--card); padding:28px 16px; text-align:center;}
+.stat .num{font-size:1.9rem; font-weight:800; color:var(--accent);}
+.stat .lbl{font-size:0.85rem; color:var(--muted); margin-top:4px;}
+
+section{padding:80px 0;}
+.section-head{max-width:640px; margin:0 auto 48px; text-align:center;}
+.section-head .eyebrow{margin-bottom:14px;}
+.section-head h2{font-size:clamp(1.6rem,3.5vw,2.2rem); font-weight:800; letter-spacing:-0.02em; margin-bottom:12px;}
+.section-head p{color:var(--muted); font-size:1.05rem;}
+
+.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+.grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+.card{
+  background:var(--card); border:1px solid var(--border); border-radius:14px; padding:28px;
+}
+.card .icon{
+  width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+  background:color-mix(in srgb, var(--accent) 15%, transparent); color:var(--accent);
+  font-size:1.3rem; margin-bottom:16px;
+}
+.card h3{font-size:1.1rem; font-weight:700; margin-bottom:8px;}
+.card p{color:var(--muted); font-size:0.95rem;}
+
+.tooling{background:var(--navy); border-top:1px solid var(--navy2); border-bottom:1px solid var(--navy2); color:#ffffff;}
+.tooling .section-head h2{color:#FFD54A;}
+.tooling .section-head p{color:#ffffff;}
+.tooling .eyebrow{border-color:#233D4D; color:#FFD54A;}
+.tool-list{list-style:none; display:grid; gap:14px; max-width:760px; margin:0 auto;}
+.tool-list li{
+  display:flex; gap:14px; align-items:flex-start; background:var(--navy2);
+  border:1px solid #233D4D; border-radius:12px; padding:18px 22px;
+}
+.tool-list b{display:block; margin-bottom:2px; color:#FFD54A;}
+.tool-list span.desc{color:#ffffff; font-size:0.92rem;}
+.tool-list .dot{
+  width:8px; height:8px; border-radius:999px; background:#FFD54A; margin-top:8px; flex:none;
+}
+
+.storefronts{text-align:center;}
+.store-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; max-width:640px; margin:0 auto;}
+.store-card{
+  background:var(--card); border:1px solid var(--border); border-radius:14px; padding:32px 24px;
+  display:flex; flex-direction:column; align-items:center; gap:12px; transition:border-color .15s ease, transform .15s ease;
+}
+.store-card:hover{border-color:var(--accent); transform:translateY(-3px);}
+.store-badge{
+  width:56px; height:56px; border-radius:14px; display:flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:1.4rem; color:#fff;
+}
+.badge-amazon{background:#FF9900;}
+.badge-ebay{background:#0064D2;}
+.store-card h3{font-size:1.05rem; font-weight:700;}
+.store-card p{color:var(--muted); font-size:0.88rem;}
+.store-card .go{
+  margin-top:6px; font-size:0.9rem; font-weight:700; color:var(--accent);
+}
+
+.cta-band{
+  background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 18%, var(--bg2)), color-mix(in srgb, var(--accent2) 12%, var(--bg2)));
+  border-radius:20px; padding:56px 32px; text-align:center; margin:0 24px;
+  max-width:1072px; margin-inline:auto;
+}
+.cta-band h2{font-size:1.8rem; font-weight:800; margin-bottom:12px;}
+.cta-band p{color:var(--muted); margin-bottom:28px;}
+
+footer{background:var(--navy); color:#EAECF0; padding:48px 0 32px; margin-top:40px;}
+.foot-grid{display:grid; grid-template-columns:1.6fr 1fr 1fr 1.2fr; gap:32px; margin-bottom:32px;}
+.foot-line{color:#EAECF0; font-size:0.92rem; margin-bottom:10px; opacity:0.85;}
+.foot-brand .brand{color:#EAECF0;}
+.foot-brand p{color:#c7d0da; font-size:0.9rem; margin-top:10px; max-width:280px;}
+.foot-col h4{font-size:0.85rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent2); margin-bottom:14px;}
+.foot-col a{display:block; color:#EAECF0; font-size:0.92rem; margin-bottom:10px; opacity:0.85;}
+.foot-col a:hover{opacity:1; color:var(--accent2);}
+.foot-bottom{
+  border-top:1px solid #233D4D; padding-top:24px; display:flex; justify-content:space-between;
+  flex-wrap:wrap; gap:12px; color:#c7d0da; font-size:0.85rem;
+}
+
+.modal-overlay{
+  display:none; position:fixed; inset:0; background:rgba(13,27,46,0.7);
+  align-items:center; justify-content:center; z-index:100;
+}
+.modal-overlay.open{display:flex;}
+.modal-box{
+  background:#fff; border-radius:14px; padding:36px 40px; text-align:center;
+  max-width:360px; box-shadow:0 20px 60px rgba(0,0,0,0.3);
+}
+.modal-box h3{font-size:1.2rem; font-weight:800; margin-bottom:10px;}
+.modal-box p{color:var(--muted); margin-bottom:20px;}
+
+@media (max-width:860px){
+  .nav-links{display:none;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .grid-2, .grid-4{grid-template-columns:1fr;}
+  .store-grid{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr; gap:24px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="https://www.cng-ventures.com/" class="brand">CNG <span>Ventures</span> Inc.</a>
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="services.html">Tooling</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Multi-Platform E-Commerce &amp; Market Intelligence</div>
+    <h1>Data-driven sourcing, built on <span class="grad">TCG &amp; Collectibles Research Tooling</span></h1>
+    <p class="sub">CNG Ventures Inc. combines real-time market analytics with established supplier relationships to identify inventory opportunities across trading cards, collectibles, and multi-category retail — then fulfills at scale on Amazon and eBay.</p>
+    <div class="hero-ctas">
+      <a href="services.html" class="btn btn-primary">Explore Our Tooling</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="stats">
+      <div class="stat"><div class="num">250k+</div><div class="lbl">Confluence Data Points per Category</div></div>
+      <div class="stat"><div class="num">6</div><div class="lbl">Categories</div></div>
+      <div class="stat"><div class="num">50+</div><div class="lbl">Sub Categories</div></div>
+      <div class="stat"><div class="num">Robust</div><div class="lbl">Research Pipelines — Historical &amp; Future Comparatives</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="grid-2">
+      <div class="card">
+        <div class="icon">◆</div>
+        <h3>Who We Are</h3>
+        <p>CNG Ventures is a U.S.-based e-commerce and product intelligence analytics firm. We fuse cross-industry market data with deep supplier networks to identify and acquire undervalued inventory, delivering measurable portfolio alpha for every client we serve.</p>
+      </div>
+      <div class="card">
+        <div class="icon">▣</div>
+        <h3>What We Do</h3>
+        <p>From high-end electronics to TCG products and collectible memorabilia, we pair vertically integrated sourcing efficiency with state-of-the-art market intelligence — turning fragmented, cross-industry opportunity into consistent, scalable returns.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tooling" class="tooling">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">In-House Systems</div>
+      <h2>TCG &amp; Collectibles Research Tooling</h2>
+      <p>Purpose-built research infrastructure that drives every sourcing decision — not guesswork.</p>
+    </div>
+    <ul class="tool-list">
+      <li><span class="dot"></span><div><b>Card &amp; Set Cascade Pricing</b><span class="desc">One authoritative card-price fetch per set, cascaded across every product/format variant — sealed booster box, ETB, tin — establishing a real value floor before any purchase.</span></div></li>
+      <li><span class="dot"></span><div><b>Sealed EV vs. Crack Analysis</b><span class="desc">Chase-card expected value modeled against sealed product pricing per format, surfacing when sealed product is undervalued relative to what's inside.</span></div></li>
+      <li><span class="dot"></span><div><b>Player &amp; Product Database Tracking</b><span class="desc">Continuously maintained historical pricing datasets across tens of thousands of tracked products, refreshed via automated research pipelines.</span></div></li>
+      <li><span class="dot"></span><div><b>Multi-Platform Listing Intelligence</b><span class="desc">Cross-marketplace price and demand signals inform what we stock, where we list it, and how we price to move.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand">CNG <span>Ventures</span> Inc.</div>
+        <p>Multi-platform e-commerce and market intelligence, grounded in purpose-built TCG and collectibles research tooling.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="about.html">About</a>
+        <a href="services.html">Tooling</a>
+      </div>
+      <div class="foot-col">
+        <h4>Storefronts</h4>
+        <a href="https://www.amazon.com/sp?ie=UTF8&amp;seller=A8BOKCQW4LSYD&amp;asin=B0BWVGC69M&amp;ref_=dp_merchant_link&amp;isAmazonFulfilled=1" target="_blank" rel="noopener">Amazon ↗</a>
+        <a href="https://www.ebay.com/str/gamingrechargestation" target="_blank" rel="noopener">eBay ↗</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="mailto:sales@cng-ventures.com">✉ sales@cng-ventures.com</a>
+        <p class="foot-line">📍 2700 Braselton HWY #STE-10<br>Dacula, GA 30019</p>
+        <p class="foot-line">🕐 Mon – Sat: 9:00 AM – 5:30 PM EST</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 CNG Ventures Inc. All rights reserved.</span>
+      <span>Nationwide Shipping · US-Based</span>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
